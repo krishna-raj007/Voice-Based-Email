@@ -1,44 +1,26 @@
 #importing libraries
 import smtplib
 import speech_recognition as sr
-<<<<<<< HEAD
-
-#importing other modules
-import retrieve_email
-=======
-import retrieve_email as rm
->>>>>>> 7a99ba00381260de34c6cbde0db4af927cdbb605
-import text_to_speech as ts
 from tkinter import *
 from tkinter.ttk import *
+
+#importing other modules
+
+import retrieve_email as rm
+import text_to_speech as ts
 
 login = 'vinodassignmentiitb@gmail.com'
 password = 'assignments@vinod'
 srObj = sr.Recognizer()
-<<<<<<< HEAD
-ts.t2s("Welcome to your email account. Please enter your choice:")
-print("Welcome to your email account. Please enter your choice:")
-ts.t2s("1: Compose Mail")
-ts.t2s("2: Read from inbox")
-ts.t2s("3: Read from sendbox")
-ts.t2s("4: Set Reminder Mail")
-print("1: Compose Mail")
-print("2: Read from inbox")
-
-with sr.Microphone() as source:
-    choice_audio=srObj.listen(source)
-
-choice=srObj.recognize_google(choice_audio)
-#put a check if only one of the two choices are present or not
-print ("You said:", choice)
-ts.t2s("You said:"+choice)
-
-if choice == '1' or choice == 'one':
-=======
-
-
+account=rm.Gmail(login,password)
+window_height=500
+window_width=600
+window_size='600x500'
+root = Tk() 
+root.geometry(window_size)
 def initialise():
-    pass
+	rm.connection(login,password)
+
 
 def tutorial_msg():
     ts.t2s("Welcome to your email account. Please enter your choice:")
@@ -47,84 +29,46 @@ def tutorial_msg():
     ts.t2s("Double left click to inbox")
     ts.t2s("Double right click to logout")
 def get_command():
-    with sr.Microphone() as source:
-        choice_audio=srObj.listen(source)
-    choice=srObj.recognize_google(choice_audio)
-    #put a check if only one of the two choices are present or not
-    print ("You said:", choice)
-    ts.t2s("You said:"+choice)
-    return choice
-
+	ts.t2s("speak now")
+	with sr.Microphone() as source:
+		choice_audio=srObj.listen(source)
+	choice=srObj.recognize_google(choice_audio)
+	#put a check if only one of the two choices are present or not
+	print ("You said:", choice)
+	ts.t2s("You said:"+choice)
+	return choice
 def get_credentials():
     ts.t2s("Speak your email id")
     userid=get_command()
     ts.t2s("speak your password")
     password=get_command()
     print("userid=",userid,"pass=",password)
-"""
-if choice == '1':
->>>>>>> 7a99ba00381260de34c6cbde0db4af927cdbb605
-    ts.t2s(" Speak your message")
-    print(" Speak your message")
-    with sr.Microphone() as source:
-        choice_audio=srObj.listen(source)
-    msg=srObj.recognize_google(choice_audio)
-    ts.t2s("Your message is:"+msg)
-    ts.t2s("If corect say yes else say no")
-    print("Your message is:"+msg)
-    print("If corect say yes else say no")
-    with sr.Microphone() as source:
-        choice_audio=srObj.listen(source)
-    choice=srObj.recognize_google(choice_audio)
-    if choice == "yes":
-        ts.t2s("You said Yes")
-<<<<<<< HEAD
-        ts.t2s(" Speak recepient's email id")
-        print(" Speak recepient's email id")
-        #with sr.Microphone() as source:
-        #    choice_audio=srObj.listen(source)
-        #receiever=srObj.recognize_google(choice_audio)
-        #ts.t2s("Your message reciever is:"+receiever)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(email_id, password)
-        server.sendmail(email_id, "gaurav.singh.atoria@gmail.com", msg)
-        ts.t2s("your message has been sent")
-    elif choice == "no":
-        print ("no")
-elif choice == '2' or choice == 'tu' or  choice == 'to':
-    ts.t2s("you chose 2")
 
-=======
-        ts.t2s("your message has been sent")
-"""
->>>>>>> 7a99ba00381260de34c6cbde0db4af927cdbb605
-
-##############################################
 def dashboard_gui():
     # creates tkinter window or root window 
-    root = Tk() 
-    root.geometry('500x400') 
-    tutorial_msg()
+    #tutorial_msg()
     # function to be called when button-2 of mouse is pressed 
+    dashboard = Frame(root, height = window_height, width = window_width)
     def left_compose(event): 
         print('Button-1 left pressed at x = % d, y = % d'%(event.x, event.y))
-        rm.compose_mail() 
+        #rm.compose_mail() 
       
     # function to be called when button-3 of mouse is pressed 
     def right_send(event): 
         print('Button-3 right pressed at x = % d, y = % d'%(event.x, event.y))
-        rm.send_mail() 
+        #rm.send_mail(["wefwe","wff"],"nasdnba") 
       
     ## function to be called when button-1 is double clocked 
     def dleft_inbox(event): 
         print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
-        rm.get_inbox() 
+        dashboard.destroy()
+        inbox_gui()
+        #rm.get_inbox() 
     def dright_logout(event): 
         print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
-        rm.logout()
+        #rm.logout()
      
-    dashboard = Frame(root, height = 100, width = 200) 
+ 
       
     # these lines are binding mouse 
     # buttons with the Frame widget 
@@ -138,9 +82,70 @@ def dashboard_gui():
     mainloop() 
     #raise NotImplemented
 #####################################################################################
+def inbox_gui():
+    # creates tkinter window or root window 
+    #inbox_tutorial_msg()
+    inbox_window = Frame(root, height = window_height, width = window_width)
+    # function to be called when button-2 of mouse is pressed 
+    def readUnseen(event): 
+        print('Button-1 left pressed at x = % d, y = % d'%(event.x, event.y))
+        print("readUnseen")
+        l=account.get_unseenmail()
+        for i in l:
+        	mail=i.from_addr+" "+i.title+" "+i.body
+        	ts.t2s(mail)        	
+        	#readMail_brief(i)      
+    # function to be called when button-3 of mouse is pressed 
+    def searchmail(event): 
+        print('Button-3 right pressed at x = % d, y = % d'%(event.x, event.y))
+        print("searchmail")
+      
+    ## function to be called when button-1 is double clocked 
+    def readAll(event): 
+        print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
+        print("readAll")
+        l=account.get_allmail()
+        for i in l:
+        	mail=i.from_addr+" "+i.title
+        	ts.t2s(mail)
+        	cmd=get_command()
+        	#readMail_brief(i)
+    def gotodashboard(event): 
+        print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
+        print("other")
+        inbox_window.destroy()
+        dashboard_gui()     
+      
+    # these lines are binding mouse 
+    # buttons with the Frame widget 
+    inbox_window.bind('<Button-1>', readUnseen) 
+    inbox_window.bind('<Button-3>', searchmail) 
+    inbox_window.bind('<Double-Button-1>', readAll) 
+    inbox_window.bind('<Double-Button-3>',gotodashboard)
+      
+    inbox_window.pack() 
+    mainloop() 
+    #raise NotImplemented
+#####################################################################################
+"""def readMail_full(mail):
+	print("from:",mail.from_addr)
+	print("to:",mail.to)
+	print("cc:",mail.cc)
+	print("title:",mail.title)
+	print("body:",mail.body)
+	print("attch:",mail.attachments)
+
+def readMail_brief(mail):
+	read_window=Frame(root, height = window_height, width = window_width)
+	print("from:",mail.from_addr)
+	print("title:",mail.title)
+	read_window.bind('<Button-1',readMail_full(mail))
+	read_window.pack()
+	return
+	"""
 def main():
-    initialise()
-    get_credentials()
+    #initialise()
+    #get_credentials()
     dashboard_gui()
     
 main()
