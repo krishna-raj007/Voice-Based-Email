@@ -1,6 +1,6 @@
 import easyimap
 
-class Gmail:
+class Gmail_imap:
 
 	def __init__(self,userid,password):
 		self.imapper = easyimap.connect('imap.gmail.com', userid, password)

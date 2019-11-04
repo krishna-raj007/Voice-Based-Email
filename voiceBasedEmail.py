@@ -1,5 +1,5 @@
 #importing libraries
-import smtplib
+
 import speech_recognition as sr
 from tkinter import *
 from tkinter.ttk import *
@@ -8,11 +8,13 @@ from tkinter.ttk import *
 
 import retrieve_email as rm
 import text_to_speech as ts
+import send_mail as sm
 
 login = 'vinodassignmentiitb@gmail.com'
 password = 'assignments@vinod'
-srObj = sr.Recognizer()
-account=rm.Gmail(login,password)
+
+account=rm.Gmail_imap(login,password)
+smtp=sm.Gmail_smtp(login,password)
 window_height=500
 window_width=600
 window_size='600x500'
@@ -28,20 +30,12 @@ def tutorial_msg():
     ts.t2s("Single right click to send")
     ts.t2s("Double left click to inbox")
     ts.t2s("Double right click to logout")
-def get_command():
-	ts.t2s("speak now")
-	with sr.Microphone() as source:
-		choice_audio=srObj.listen(source)
-	choice=srObj.recognize_google(choice_audio)
-	#put a check if only one of the two choices are present or not
-	print ("You said:", choice)
-	ts.t2s("You said:"+choice)
-	return choice
+
 def get_credentials():
     ts.t2s("Speak your email id")
-    userid=get_command()
+    userid=ts.get_command()
     ts.t2s("speak your password")
-    password=get_command()
+    password=ts.get_command()
     print("userid=",userid,"pass=",password)
 
 def dashboard_gui():
@@ -51,12 +45,12 @@ def dashboard_gui():
     dashboard = Frame(root, height = window_height, width = window_width)
     def left_compose(event): 
         print('Button-1 left pressed at x = % d, y = % d'%(event.x, event.y))
-        #rm.compose_mail() 
+        smtp.compose_mail()
       
     # function to be called when button-3 of mouse is pressed 
     def right_send(event): 
         print('Button-3 right pressed at x = % d, y = % d'%(event.x, event.y))
-        #rm.send_mail(["wefwe","wff"],"nasdnba") 
+        #smtp.send_mail()
       
     ## function to be called when button-1 is double clocked 
     def dleft_inbox(event): 
@@ -73,8 +67,8 @@ def dashboard_gui():
     # these lines are binding mouse 
     # buttons with the Frame widget 
     dashboard.bind('<Button-1>', left_compose) 
-    dashboard.bind('<Button-3>', right_send) 
-    dashboard.bind('<Double-Button-1>', dleft_inbox) 
+    #dashboard.bind('<Button-3>', right_send) 
+    dashboard.bind('<Button-3>', dleft_inbox) 
     dashboard.bind('<Double-Button-3>',dright_logout)
       
     dashboard.pack() 
@@ -108,7 +102,7 @@ def inbox_gui():
         for i in l:
         	mail=i.from_addr+" "+i.title
         	ts.t2s(mail)
-        	cmd=get_command()
+        	cmd=ts.get_command()
         	#readMail_brief(i)
     def gotodashboard(event): 
         print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
