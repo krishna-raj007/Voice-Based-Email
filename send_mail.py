@@ -11,13 +11,16 @@ class Gmail_smtp:
 
     def compose_mail(self):
         print("incompose")
-        ts.t2s("Welcome to compose mail. Speak your text message")
+        ts.t2s("Welcome to compose mail. Speak subject of message")
         print(" Speak your message")
-        msg = ts.get_command()
+        subject = ts.get_command()
+        ts.t2s("Now speak the email content")
+        text = ts.get_command()
         # ts.t2s("Your message is:"+msg)
         # ts.t2s("If corect say yes else say no")
-        print("Your message is:" + msg)
-        print("If corect say yes else say no")
+        print("Your message is:" + text)
+        print("If correct say yes else say no")
+        msg = 'Subject: {}\n\n{}'.format(subject, text)
         ts.t2s("Your message has been recorded. Say send to send this mail and save to save it to drafts")
         choice = ts.get_command()
         if choice == "send":
