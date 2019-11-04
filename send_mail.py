@@ -1,9 +1,10 @@
 
+import smtplib    
 import text_to_speech as ts
 import speech_recognition as sr
-import voiceBasedEmail as vbe
+#import voiceBasedEmail as vbe
 
-class Gmail_Smtp:
+class Gmail_smtp:
     def __init__(self, userid, password):
         self.userid = userid
         self.password = password
@@ -12,12 +13,13 @@ class Gmail_Smtp:
         print("incompose")
         ts.t2s("Welcome to compose mail. Speak your text message")
         print(" Speak your message")
-        msg = vbe.get_command()
+        msg = ts.get_command()
         # ts.t2s("Your message is:"+msg)
         # ts.t2s("If corect say yes else say no")
         print("Your message is:" + msg)
         print("If corect say yes else say no")
         ts.t2s("Your message has been recorded. Say 1 to send mail and 2 to save")
+        choice=ts.get_command()
         if choice == "1":
             self.send_mail(msg)
         elif choice == "2":
@@ -32,9 +34,11 @@ class Gmail_Smtp:
         # raise NotImplemented
         ts.t2s(" Speak recepient's email id")
         print(" Speak recepient's email id")
-        # receiever=vbe.get_email
-        receiver = "gaurav.singh.atoria@gmail.com"
-        ts.t2s("Your message reciever is:" + receiever)
+
+        receiever=ts.get_command()
+        print(receiever)
+        reciever = "gaurav.singh.atoria@gmail.com"
+        ts.t2s("Your message reciever is:" + reciever)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         print("Connected to gmail server")
         server.starttls()
@@ -45,5 +49,6 @@ class Gmail_Smtp:
         return
 
 
-    def save_mail(self, msg):
-        pass
+
+    # def save_mail(self, msg):
+    #     pass
