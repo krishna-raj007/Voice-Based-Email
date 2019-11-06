@@ -82,14 +82,16 @@ def inbox_gui():
       
     ## function to be called when button-1 is double clocked 
     def readAll(event): 
+    	cmds=["read","forward","reply","next","stop","delete","help"]
         print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
         print("readAll")
         tm.readAll_msg()
+        tm.readAll_cmds()
         l=account.get_allmail()
         for i in l:
         	mail=i.from_addr+" "+i.title
         	ts.t2s(mail)
-        	cmd=ts.get_command()
+        	cmd=ts.get_command(cmds)
         	if cmd=="read":
         		mail=i.body
         		ts.t2s(mail)
@@ -103,6 +105,10 @@ def inbox_gui():
         		smtp.reply_mail(i.from_addr)
         	elif cmd=="stop":
         		break
+        	elif cmd=="help":
+        		tm.readAll_cmds()
+        	else:
+        		ts.t2s("no command given  reading next mail")
     def gotodashboard(event): 
         print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
         print("other")
