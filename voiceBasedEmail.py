@@ -16,12 +16,9 @@ password = 'assignments@vinod'
 
 account=rm.Gmail_imap(login,password)
 smtp=sm.Gmail_smtp(login,password)
-window_height=500
-window_width=600
-window_size='600x500'
 root = Tk() 
-root.geometry(window_size)
-
+window_height=root.winfo_screenheight()
+window_width=root.winfo_screenwidth()
 def get_credentials():
     ts.t2s("Speak your email id")
     userid=ts.get_command()
@@ -35,12 +32,12 @@ def dashboard_gui():
     # function to be called when button-2 of mouse is pressed 
     dashboard = Frame(root, height = window_height, width = window_width)
     def left_compose(event): 
-        print('Button-1 left pressed at x = % d, y = % d'%(event.x, event.y))
+        #print('Button-1 left pressed at x = % d, y = % d'%(event.x, event.y))
         smtp.compose_mail()
       
     ## function to be called when button-1 is double clocked 
     def right_inbox(event): 
-        print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
+        #print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
         dashboard.destroy()
         inbox_gui()
         #rm.get_inbox() 
@@ -54,8 +51,8 @@ def dashboard_gui():
     # buttons with the Frame widget 
     dashboard.bind('<Button-1>', left_compose) 
     #dashboard.bind('<Button-3>', right_send) 
-    dashboard.bind('<Button-2>', right_inbox)
-    dashboard.bind('<Double-Button-2>',dright_logout)
+    dashboard.bind('<Button-3>', right_inbox)
+    dashboard.bind('<Double-Button-3>',dright_logout)
       
     dashboard.pack() 
       
@@ -83,12 +80,12 @@ def inbox_gui():
     ## function to be called when button-1 is double clocked 
     def readAll(event): 
     	cmds=["read","forward","reply","next","stop","delete","help"]
-        print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
-        print("readAll")
-        tm.readAll_msg()
-        tm.readAll_cmds()
-        l=account.get_allmail()
-        for i in l:
+    	#print('Double left clicked at x = % d, y = % d'%(event.x, event.y))
+    	print("readAll")
+    	tm.readAll_msg()
+    	tm.readAll_cmds()
+    	l=account.get_allmail()
+    	for i in l:
         	mail=i.from_addr+" "+i.title
         	ts.t2s(mail)
         	cmd=ts.get_command(cmds)
@@ -110,7 +107,7 @@ def inbox_gui():
         	else:
         		ts.t2s("no command given  reading next mail")
     def gotodashboard(event): 
-        print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
+        #print('Double right clicked at x = % d, y = % d'%(event.x, event.y))
         print("other")
         inbox_window.destroy()
         dashboard_gui()     
@@ -120,7 +117,7 @@ def inbox_gui():
     # inbox_window.bind('<Button-1>', readUnseen) 
     # inbox_window.bind('<Button-3>', searchmail) 
     inbox_window.bind('<Button-1>', readAll) 
-    inbox_window.bind('<Button-2>',gotodashboard)
+    inbox_window.bind('<Button-3>',gotodashboard)
       
     inbox_window.pack() 
     mainloop() 

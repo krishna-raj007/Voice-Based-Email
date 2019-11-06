@@ -5,16 +5,6 @@ class Gmail_imap:
 	def __init__(self,userid,password):
 		self.imapper = easyimap.connect('imap.gmail.com', userid, password)
 
-	def compose_mail(self):
-		print("in compose");
-		#imp
-		return
-	def send_mail(self,targets,msg):
-		print("iin send_mail")
-	    #the function should take take user name and password and return the contents of inbox
-	    #in a format that we can extract mails from it
-	    #raise NotImplemented
-		return
 	def get_allmail(self):
 		l=[]
 		for mail_id in self.imapper.listids(limit=100):
