@@ -1,4 +1,6 @@
-
+import imaplib
+import email
+import time
 import smtplib    
 import text_to_speech as ts
 import speech_recognition as sr
@@ -89,5 +91,8 @@ class Gmail_smtp:
             return
         else:
             ts.t2s("Reply not sent")
-    # def save_mail(self, msg):
-    #     pass
+    #def save_mail(self, msg):
+    #    conn = imaplib.IMAP4_SSL('imap.gmail.com', port=993)
+    #    conn.login(self.userid, self.password)
+    #    conn.select('[Gmail]/Drafts')
+    #    conn.append("[Gmail]/Drafts", '', imaplib.Time2Internaldate(time.time()), str(msg))

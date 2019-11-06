@@ -54,8 +54,8 @@ def dashboard_gui():
     # buttons with the Frame widget 
     dashboard.bind('<Button-1>', left_compose) 
     #dashboard.bind('<Button-3>', right_send) 
-    dashboard.bind('<Button-3>', right_inbox) 
-    dashboard.bind('<Double-Button-3>',dright_logout)
+    dashboard.bind('<Button-2>', right_inbox)
+    dashboard.bind('<Double-Button-2>',dright_logout)
       
     dashboard.pack() 
       
@@ -114,7 +114,7 @@ def inbox_gui():
     # inbox_window.bind('<Button-1>', readUnseen) 
     # inbox_window.bind('<Button-3>', searchmail) 
     inbox_window.bind('<Button-1>', readAll) 
-    inbox_window.bind('<Button-3>',gotodashboard)
+    inbox_window.bind('<Button-2>',gotodashboard)
       
     inbox_window.pack() 
     mainloop() 

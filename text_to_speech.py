@@ -17,7 +17,7 @@ def t2s(text):
 def get_command():
     while(1):
         while (1):
-            t2s("Speak now")
+            #t2s("Speak now")
             try:
                 with sr.Microphone() as source:
                     choice_audio = srObj.listen(source)
@@ -33,12 +33,17 @@ def get_command():
             with sr.Microphone() as source:
                 choice_audio = srObj.listen(source)
             confirmation = srObj.recognize_google(choice_audio)
+            print ("you said"+confirmation)
             if confirmation == "yes":
                 break
-            else:
+            elif confirmation == "no":
                 t2s("You said no. Kindly repeat you message")
-        except:
+            else:
+                t2s("Couldn't recognize that taking its as no. Kindly repeat you message")
+        except Exception as e:
+            print(e)
             t2s("Some problem occured . Kindly repeat you message")
+            continue
     print ("returning message")
     return voice_inp
 
@@ -66,10 +71,16 @@ def get_email():
             with sr.Microphone() as source:
                 choice_audio = srObj.listen(source)
             confirmation = srObj.recognize_google(choice_audio)
+            print("you said" + confirmation)
             if confirmation == "yes":
                 break
-            else:
+            elif confirmation == "no":
                 t2s("You said no. Kindly repeat you message")
-        except:
-            t2s("You said no. Kindly repeat you message")
+            else:
+                t2s("Couldn't recognize that taking its as no. Kindly repeat you message")
+        except Exception as e:
+            print(e)
+            t2s("Some problem occured . Kindly repeat you message")
+            continue
+    print("returning message")
     return voice_inp
