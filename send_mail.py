@@ -24,7 +24,7 @@ class Gmail_smtp:
         print("If correct say yes else say no")
         msg = 'Subject: {}\n\n{}'.format(subject, text)
         ts.t2s("Your message has been recorded. Say send to send this mail and save to save it to drafts")
-        choice = ts.get_command()
+        choice = ts.get_command(["send","save"])
         if choice == "send":
             self.send_mail(msg)
         elif choice == "save":
@@ -37,8 +37,8 @@ class Gmail_smtp:
         # the function should take take user name and password and return the contents of inbox
         # in a format that we can extract mails from it
         # raise NotImplemented
-        ts.t2s(" Speak recepient's email id")
-        print(" Speak recepient's email id")
+        ts.t2s(" Speak recepient's email address")
+        print(" Speak recepient's email address")
 
         receiever=ts.get_email()
         print(receiever)

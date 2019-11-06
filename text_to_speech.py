@@ -14,7 +14,7 @@ def t2s(text):
     #raise NotImplemented
 
 
-def get_command():
+def get_command(options=None):
     while(1):
         while (1):
             #t2s("Speak now")
@@ -28,6 +28,9 @@ def get_command():
                 print("I dint get you . Could you please repeat")
             # put a check if only one of the two choices are present or not
         print("You said:", voice_inp)
+        if voice_inp in options:
+            return voice_inp
+
         t2s("You said:" + voice_inp + ". Say yes to confirm and no to try again ")
         try:
             with sr.Microphone() as source:
@@ -66,6 +69,7 @@ def get_email():
         voice_inp.replace("underscore", "_")
         voice_inp.replace("at", "@")
         voice_inp.replace(" ", "")
+        print("You said:", voice_inp)
         t2s("You said:" + voice_inp + ". Say yes to confirm and no to try again ")
         try:
             with sr.Microphone() as source:
@@ -80,7 +84,7 @@ def get_email():
                 t2s("Couldn't recognize that taking its as no. Kindly repeat you message")
         except Exception as e:
             print(e)
-            t2s("Some problem occured . Kindly repeat you message")
+            t2s("Some problem occured. Kindly repeat you message")
             continue
     print("returning message")
     return voice_inp
