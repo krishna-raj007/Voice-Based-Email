@@ -3,8 +3,10 @@ import speech_recognition as sr
 import os 
 
 srObj = sr.Recognizer()
+
 def t2s(text):
-    #the function should take a string in text and we should get an output through the speakers
+    """the function converts text to voice.
+    :param text: sentence to convert to speech."""
     print(text)
     language = 'en'
     myobj = gTTS(text=text, lang=language, slow=False)
@@ -36,6 +38,10 @@ def closest(inp,options):
 
 
 def get_command(options=None):
+    """function to take user input as voice and convert it into sentence/text. On receiving command as input, compares it with
+     list of possible commands provided as argument and return command. Otherwise requires user conformation.
+     :param options: list of possible commands that user should give.
+     :type options: list of string"""
     while(1):
         while (1):
             #t2s("Speak now")
@@ -76,6 +82,7 @@ def get_command(options=None):
 
 
 def get_email():
+    """function to take mail address of user  as voice input and parse it in a valid mail address."""
     while(1):
         while (1):
             t2s("Speak now")
