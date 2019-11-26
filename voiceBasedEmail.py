@@ -69,6 +69,7 @@ def dashboard():
         inbox()
     elif cmd == "compose":
         smtp.compose_mail()
+
     elif cmd == "logout":
         rm.logout()
   
@@ -80,6 +81,5 @@ def main():
     initialise()
     # get_credentials()
     dashboard()
-
 
 main()

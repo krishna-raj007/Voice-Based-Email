@@ -13,6 +13,18 @@ def t2s(text):
     #os.remove("../VoiceFiles/audio.mp3")
     #raise NotImplemented
 
+def distance(word1,word2):
+    
+
+def closest(inp,options):
+    min_dist=9999
+    for i in options:
+        d=distance(i, inp)
+        if d < min_dist:
+            min_dist= d
+            closest_word=i
+    return closest_word
+
 
 def get_command(options=None):
     while(1):
@@ -28,8 +40,10 @@ def get_command(options=None):
                 print("I dint get you . Could you please repeat")
             # put a check if only one of the two choices are present or not
         print("You said:", voice_inp)
-        if voice_inp in options:
-            return voice_inp
+        if options != None:
+            if voice_inp not in options:
+                return closest(voice_inp,options)
+            else return voice_input
 
         t2s("You said:" + voice_inp + ". Say yes to confirm and no to try again ")
         try:
