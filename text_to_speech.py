@@ -14,7 +14,16 @@ def t2s(text):
     #raise NotImplemented
 
 def distance(word1,word2):
-    
+    l1=len(word1)
+    l2=len(word2)
+    matrix = [[0 for x in range(l1 + 1)] for x in range(l2 + 1)]
+    for i in range(l1+1):
+        for j in range(l2+1):
+            if i==0 or j==0:
+                matrix[i][j] = i+j
+            else:
+                matrix[i][j] = min (matrix[i][j-1]+1,matrix[i-1][j]+1,matrix[i-1][j-1]+(word1[i]!=word2[j]))
+    return matrix[l1][l2]
 
 def closest(inp,options):
     min_dist=9999
@@ -43,7 +52,8 @@ def get_command(options=None):
         if options != None:
             if voice_inp not in options:
                 return closest(voice_inp,options)
-            else return voice_input
+            else:
+                return voice_inp
 
         t2s("You said:" + voice_inp + ". Say yes to confirm and no to try again ")
         try:
