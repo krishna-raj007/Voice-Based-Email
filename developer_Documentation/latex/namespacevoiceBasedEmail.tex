@@ -1,0 +1,126 @@
+\hypertarget{namespacevoiceBasedEmail}{}\section{voice\+Based\+Email Namespace Reference}
+\label{namespacevoiceBasedEmail}\index{voice\+Based\+Email@{voice\+Based\+Email}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacevoiceBasedEmail_a7f64e055c373a69d649b9f6dc95d5b65}{initialise} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}\char`\"{}\char`\"{}initialise  variables and create starting environment\char`\"{}\char`\"{}\char`\"{} \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoiceBasedEmail_a69b906256292689b07c1988f88238a1c}{get\+\_\+mailbox} (st)
+\item 
+def \hyperlink{namespacevoiceBasedEmail_a15c38e2e034d72a5ac7cbae407bfee32}{read\+All} (mail\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Read all mails. \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoiceBasedEmail_a50a8c6217718182113988136063f0b02}{get\+\_\+all\+Unseen\+Mail} ()
+\begin{DoxyCompactList}\small\item\em Get all unseen mails. \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoiceBasedEmail_a3b5985596aae846804bab620c9131061}{inbox} ()
+\begin{DoxyCompactList}\small\item\em Inbox. \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoiceBasedEmail_a78909b6db7071b2cbe1e43461c83290f}{dashboard} ()
+\begin{DoxyCompactList}\small\item\em Dashboard. \end{DoxyCompactList}\item 
+def \hyperlink{namespacevoiceBasedEmail_acdfa4990ff348bcc34fd0d6f74380fd6}{main} ()
+\begin{DoxyCompactList}\small\item\em Mian() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacevoiceBasedEmail_a027c09bdec7448ff2e44fe874dbde271}{account}
+\begin{DoxyCompactList}\small\item\em object of Gmail\+\_\+imap class to implement member methods. \end{DoxyCompactList}\item 
+int \hyperlink{namespacevoiceBasedEmail_ab69ec372b938baefc499493e55bb19ad}{smtp}
+\begin{DoxyCompactList}\small\item\em object of Gmail\+\_\+smtp class to implement member methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacevoiceBasedEmail_a78909b6db7071b2cbe1e43461c83290f}\label{namespacevoiceBasedEmail_a78909b6db7071b2cbe1e43461c83290f}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!dashboard@{dashboard}}
+\index{dashboard@{dashboard}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{dashboard()}{dashboard()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+dashboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dashboard. 
+
+Dashboard for user after successful login. User can go to inbox, mailbox, logout or compose mail\begin{DoxyVerb}Dashboard for user after successful login. User can go to inbox, mailbox, logout or compose mail \end{DoxyVerb}
+ \mbox{\Hypertarget{namespacevoiceBasedEmail_a50a8c6217718182113988136063f0b02}\label{namespacevoiceBasedEmail_a50a8c6217718182113988136063f0b02}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!get\+\_\+all\+Unseen\+Mail@{get\+\_\+all\+Unseen\+Mail}}
+\index{get\+\_\+all\+Unseen\+Mail@{get\+\_\+all\+Unseen\+Mail}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{get\+\_\+all\+Unseen\+Mail()}{get\_allUnseenMail()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+get\+\_\+all\+Unseen\+Mail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get all unseen mails. 
+
+This function retrieves all unseen mails from user\textquotesingle{}s inbox \mbox{\Hypertarget{namespacevoiceBasedEmail_a69b906256292689b07c1988f88238a1c}\label{namespacevoiceBasedEmail_a69b906256292689b07c1988f88238a1c}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!get\+\_\+mailbox@{get\+\_\+mailbox}}
+\index{get\+\_\+mailbox@{get\+\_\+mailbox}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{get\+\_\+mailbox()}{get\_mailbox()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+get\+\_\+mailbox (\begin{DoxyParamCaption}\item[{}]{st }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacevoiceBasedEmail_a3b5985596aae846804bab620c9131061}\label{namespacevoiceBasedEmail_a3b5985596aae846804bab620c9131061}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!inbox@{inbox}}
+\index{inbox@{inbox}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{inbox()}{inbox()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+inbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inbox. 
+
+Retrieve mails of user account.\+User can choose to get all mails or only unseen mails. If no command is given ,user goes back to dashboard. \mbox{\Hypertarget{namespacevoiceBasedEmail_a7f64e055c373a69d649b9f6dc95d5b65}\label{namespacevoiceBasedEmail_a7f64e055c373a69d649b9f6dc95d5b65}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!initialise@{initialise}}
+\index{initialise@{initialise}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\char`\"{}\char`\"{}\char`\"{}initialise  variables and create starting environment\char`\"{}\char`\"{}\char`\"{} 
+
+Creating object of Gmail\+\_\+imap class and Gmail\+\_\+smtp class read user id and password from file user\+I\+D\+Password.\+txt global variable account stores imap information global variable smtp stores smtp information \mbox{\Hypertarget{namespacevoiceBasedEmail_acdfa4990ff348bcc34fd0d6f74380fd6}\label{namespacevoiceBasedEmail_acdfa4990ff348bcc34fd0d6f74380fd6}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!main@{main}}
+\index{main@{main}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mian() 
+
+Main function to initialise and lunch account dashboard. \mbox{\Hypertarget{namespacevoiceBasedEmail_a15c38e2e034d72a5ac7cbae407bfee32}\label{namespacevoiceBasedEmail_a15c38e2e034d72a5ac7cbae407bfee32}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!read\+All@{read\+All}}
+\index{read\+All@{read\+All}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{read\+All()}{readAll()}}
+{\footnotesize\ttfamily def voice\+Based\+Email.\+read\+All (\begin{DoxyParamCaption}\item[{}]{mail\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+Read all mails. 
+
+This function read out sender and subject of mail to user.\+Then perform action given by user such as read entire mail, forward this mail, reply to current mail, delete, read next, and stop reading. User is informed about available commands.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mail\+\_\+list} & list of mails to read \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacevoiceBasedEmail_a027c09bdec7448ff2e44fe874dbde271}\label{namespacevoiceBasedEmail_a027c09bdec7448ff2e44fe874dbde271}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!account@{account}}
+\index{account@{account}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{account}{account}}
+{\footnotesize\ttfamily voice\+Based\+Email.\+account}
+
+
+
+object of Gmail\+\_\+imap class to implement member methods. 
+
+\mbox{\Hypertarget{namespacevoiceBasedEmail_ab69ec372b938baefc499493e55bb19ad}\label{namespacevoiceBasedEmail_ab69ec372b938baefc499493e55bb19ad}} 
+\index{voice\+Based\+Email@{voice\+Based\+Email}!smtp@{smtp}}
+\index{smtp@{smtp}!voice\+Based\+Email@{voice\+Based\+Email}}
+\subsubsection{\texorpdfstring{smtp}{smtp}}
+{\footnotesize\ttfamily voice\+Based\+Email.\+smtp}
+
+
+
+object of Gmail\+\_\+smtp class to implement member methods. 
+

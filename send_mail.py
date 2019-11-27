@@ -6,19 +6,32 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import imaplib
 
+
+##
+# @brief Class to create SMTP object and implement various features of SMTP protocol
+#
 class Gmail_smtp:
-    """Class to create SMTP object and implement various features of SMTP protocol"""
+
+
+    ##
+    # @brief init()
+    #
+    # @details nit to get user name and password
+    #
+    # @param[in]    userid    user email id
+    # @param[in]    password    password for login
+    #
     def __init__(self, userid, password):
-        """init to get user name and password .
-        :param userid: gmail user id of user
-        :type userid: string
-        :param password: user account password
-        :type password: string"""
         self.userid = userid
         self.password = password
 
+    ##
+    # @brief Compose mails
+    #
+    # @details compose a mail
+    #
     def compose_mail(self):
-        """compose a mail """
+
         print("incompose")
         ts.t2s("Welcome to compose mail. Speak subject of message")
         print(" Speak your message")
@@ -46,11 +59,15 @@ class Gmail_smtp:
             self.save_mail(msg)
         return
 
-
+    ##
+    # @brief Send mail
+    #
+    # @details function to send mails
+    #
+    # @param[in]    msg    message to send
+    #
     def send_mail(self, msg):
-        """function to send mails
-        :param msg: message to send
-        :type msg: string"""
+
         print("in send_mail")
         ts.t2s(" Speak recepient's email address")
         print(" Speak recepient's email address")
@@ -67,10 +84,16 @@ class Gmail_smtp:
         ts.t2s("your message has been sent")
         return
 
+
+    ##
+    # @brief Forward mail
+    #
+    # @details function to forward mail
+    #
+    # @param[in]    msg    message to forward
+    #
     def forward_mail(self, msg):
-        """function to forward mail
-        :param msg: message to forward
-        :type msg: string"""
+
         ts.t2s(" Speak recepient's email id")
         print(" Speak recepient's email id")
 
@@ -87,10 +110,15 @@ class Gmail_smtp:
         ts.t2s("your message has been sent")
         return
 
+    ##
+    # @brief Reply mail
+    #
+    # @details function to send reply of a  mail
+    #
+    # @param[in]    recepient_id    gmail user id of receiver
+    #
     def reply_mail(self,recepient_id):
-        """function to send reply of a  mail
-        :param recepient_id: gmail user id of receiver
-        :type recepient_id: string"""
+
         ts.t2s("Please provide your reply")
         print(" Speak your reply")
         reply = ts.get_command()
@@ -112,10 +140,14 @@ class Gmail_smtp:
         else:
             ts.t2s("Reply not sent")
 
+    ##
+    # @brief Save mail
+    #
+    # @details functioin to save composed mail as draft
+    #
+    # @param[in]    message    message of mail to save as draft
+    #
     def save_mail(self, message):
-        """functioin to save composed mail as draft.
-        :param message: message of mail to save as draft.
-        :type message: string"""
         # msg = email.message.Message()
         # msg['Subject'] = 'subject of the message'
         # msg['From'] = self.userid

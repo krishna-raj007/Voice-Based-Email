@@ -1,12 +1,22 @@
-from gtts import gTTS 
+from gtts import gTTS
 import speech_recognition as sr
 import os 
-
+## @var srObj
+# Speech recognition object to use its methods for reading input at microphone.
+# \hideinitializer
+#
 srObj = sr.Recognizer()
 
+
+##
+# @brief Text to Speech
+#
+# @details the function converts text to voice.
+#
+# @param[in]    text    sentence to convert to speech.
+#
 def t2s(text):
-    """the function converts text to voice.
-    :param text: sentence to convert to speech."""
+
     print(text)
     language = 'en'
     myobj = gTTS(text=text, lang=language, slow=False)
@@ -15,6 +25,14 @@ def t2s(text):
     #os.remove("../VoiceFiles/audio.mp3")
     #raise NotImplemented
 
+##
+# @brief Distance
+#
+# @details the function calculate distance between two commands.
+#
+# @param[in]    word1    command .
+# @param[in]    word2    command .
+#
 def distance(word1,word2):
     l1=len(word1)
     l2=len(word2)
@@ -36,12 +54,16 @@ def closest(inp,options):
             closest_word=i
     return closest_word
 
-
+##
+# @brief Take Command from user
+#
+# @details function to take user input as voice and convert it into sentence/text. On receiving command as input, compares it with
+#      list of possible commands provided as argument and return command. Otherwise requires user conformation.
+#
+# @param[in]    options    list of possible commands that user should give. .
+#
 def get_command(options=None):
-    """function to take user input as voice and convert it into sentence/text. On receiving command as input, compares it with
-     list of possible commands provided as argument and return command. Otherwise requires user conformation.
-     :param options: list of possible commands that user should give.
-     :type options: list of string"""
+
     while(1):
         while (1):
             #t2s("Speak now")
@@ -80,9 +102,14 @@ def get_command(options=None):
     print ("returning message")
     return voice_inp
 
-
+##
+# @brief Take Email Address from user
+#
+# @details function to take mail address of user  as voice input and parse it in a valid mail address.
+#
+#
 def get_email():
-    """function to take mail address of user  as voice input and parse it in a valid mail address."""
+
     while(1):
         while (1):
             t2s("Speak now")

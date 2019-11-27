@@ -1,45 +1,60 @@
-import easyimap
+#import easyimap
 import imaplib
+
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
+##
+# @brief Gmail_imap class to create imap object and perform actions.
+#
 class Gmail_imap:
-	"""Gmail_imap class to create imap object and perform actions."""
+
+	##
+	# @brief init()
+	#
+	# @details init() to stabilise connection with gmail imap server
+	#
+	# @param[in]    userid    user email id
+	# @param[in]    password    password for login
+	#
 	def __init__(self, userid, password):
-		"""init() to stabilise connection with gmail imap server .
-		:param userid: gmail user id of user
-		:type userid: string
-		:param password: user account password
-		:type password: string"""
+
 		self.userid=userid
 		self.password=password
 		self.imapper = easyimap.connect('imap.gmail.com', userid, password)
 
+	##
+	# @brief Retrieve mails
+	#
+	# @details Function to retrieve all mails in mailbox
+	#
 	def get_allmail(self):
-		"""Function to retrieve all mails in mailbox.
-		:return: list of mails
-		:rtype: mail object list"""
+
 		l = []
 		for mail_id in self.imapper.listids(limit=100):
 			mail = self.imapper.mail(mail_id)
 			l.append(mail)
 		return l
 
+	##
+	# @brief Fetch Mail Ids
+	#
+	# @details This function retrieve mails based on mail id(s)
+	#
+	# @param[in]    ids    user email id(s)
+	#
 	def fetch_mail_id(self, ids) :
-		"""This function retrieve mails based on mail id(s)
-		:param ids: list of mail id
-		:type ids: binary
-		:param mail_list: list mail objects
-		:rtype mail_list: list"""
 		mail_list=[]
 		for i in  ids:
 			mail_list.append(self.imapper.mail(i))
 		#print("mails=====\n",list)
 		return  mail_list
 
+	##
+	# @brief Fetch Unseen mails
+	#
+	# @details Retrieve all the unseen mail from mailbox.
+	#
 	def get_unseenmail(self):
-		"""Retrieve all the unseen mail from mailbox.
-		:return id_list: list of mail ids
-		:rtype: id_list: list of binary"""
 		mail.login(self.userid, self.password)
 		mail.select("inbox")
 		rv, msgset = mail.search(None, 'UNSEEN')
@@ -49,17 +64,27 @@ class Gmail_imap:
 		mail.logout()
 		return id_list
 
+	##
+	# @brief Logout
+	#
+	# @details logout from current account
+	#
+
 	def account_logout(self,):
-		"""logout from current account."""
 		self.imapper.quit()
 
-	def change_mailbox(self,mailbox):
-		self.imapper.change_mailbox(mailbox)
+	# def change_mailbox(self,mailbox):
+	# 	self.imapper.change_mailbox(mailbox)
 
+	##
+	# @brief Delete Mail
+	#
+	# @details deletes a mail with given subject and sender mail address.
+	#
+	# @param[in]    fromID    sender mail address
+	# @param[in]    subject    subject of mail to be deleted
+	#
 	def delete_mail(self,fromID, subject):
-		"""deletes a mail with given subject and sender mail address.
-		:param fromID: sender mail address.
-		:param subject: subject of mail to be deleted."""
 		mail.login(self.userid,self.password)
 		mail.select("inbox")
 		frm="FROM "+fromID
