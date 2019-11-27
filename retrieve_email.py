@@ -3,8 +3,8 @@ import imaplib
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 
 class Gmail_imap:
-
-	def __init__(self,userid,password):
+	"""Gmail_imap class to create imap object and perform actions."""
+	def __init__(self, userid, password):
 		"""init() to stabilise connection with gmail imap server .
 		:param userid: gmail user id of user
 		:type userid: string
@@ -16,8 +16,8 @@ class Gmail_imap:
 
 	def get_allmail(self):
 		"""Function to retrieve all mails in mailbox.
-		:return l: list of mails
-		:rtype l: mail object list"""
+		:return: list of mails
+		:rtype: mail object list"""
 		l = []
 		for mail_id in self.imapper.listids(limit=100):
 			mail = self.imapper.mail(mail_id)

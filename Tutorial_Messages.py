@@ -1,6 +1,6 @@
 import text_to_speech as ts
 class Tutorial_Messages:
-
+    """class to access various tutorial sentences/speeches"""
     def dashboard_msg(self):
         """Commands available to user on dashboard i.e. compose, inbox, logout."""
         ts.t2s("Welcome to your email account.   Please listen your choices.   Compose to  compose.  Inbox to access your  inbox. Logout to  logout form this account ")
