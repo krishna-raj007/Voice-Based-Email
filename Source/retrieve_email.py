@@ -84,16 +84,22 @@ class Gmail_imap:
 	# @param[in]    fromID    sender mail address
 	# @param[in]    subject    subject of mail to be deleted
 	#
-	def delete_mail(self,fromID, subject):
+	def delete_mail(self,fromID, subject=None):
 		mail.login(self.userid,self.password)
 		mail.select("inbox")
-		frm="FROM "+fromID
-		sub="SUBJECT "+subject
-		print(frm,"-============\n")
-		rv, msgset= mail.search(None,frm,sub)
-		print(rv," -----------------------\n", msgset[0].split())
-		l=msgset[0].split()
-		mail.store(l[0], '+FLAGS', '\\Deleted')
+		frm='FROM '+fromID
+
+		#print(sub,"-============\n")
+		if(subject == None):
+			rv, msgset= mail.search(None, frm)
+		else:
+			sub = 'SUBJECT ' + subject
+			rv, msgset = mail.search(None, frm, sub)
+		print(rv," -----------------------\n", msgset)
+		if(len(msgset) !=0):
+			for i in msgset[0].split():
+				print("deleting\t", i,"\n")
+				mail.store(i, '+FLAGS', '\\Deleted')
 		mail.close()
 		mail.logout()
 
