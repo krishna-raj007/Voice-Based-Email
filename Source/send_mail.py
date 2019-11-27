@@ -71,10 +71,11 @@ class Gmail_smtp:
         print("in send_mail")
         ts.t2s(" Speak recepient's email address")
         print(" Speak recepient's email address")
-        receiever = ts.get_email()
-        print(receiever)
-        reciever = "gaurav.singh.atoria@gmail.com"
-        ts.t2s("Your message reciever is:" + reciever)
+        receiver = ts.get_email()
+        print(receiver)
+
+        ts.t2s("Your message reciever is:" + receiver)
+        receiver = "vkmzp8896@gmail.com"
         server = smtplib.SMTP('smtp.gmail.com', 587)
         print("Connected to gmail server")
         server.starttls()

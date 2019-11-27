@@ -36,13 +36,16 @@ def t2s(text):
 def distance(word1,word2):
     l1=len(word1)
     l2=len(word2)
-    matrix = [[0 for x in range(l1 + 1)] for x in range(l2 + 1)]
+    matrix = [[0 for x in range(l2 + 1)] for x in range(l1 + 1)]
     for i in range(l1+1):
         for j in range(l2+1):
             if i==0 or j==0:
                 matrix[i][j] = i+j
             else:
-                matrix[i][j] = min (matrix[i][j-1]+1,matrix[i-1][j]+1,matrix[i-1][j-1]+(word1[i]!=word2[j]))
+                e=0
+                if word1[i-1]!=word2[j-1]:
+                    e = 1 + (i/l1)
+                matrix[i][j] = min(matrix[i][j-1]+1,matrix[i-1][j]+1,matrix[i-1][j-1]+e)
     return matrix[l1][l2]
 
 def closest(inp,options):
@@ -112,7 +115,7 @@ def get_email():
 
     while(1):
         while (1):
-            t2s("Speak now")
+            #t2s("Speak now")
             try:
                 with sr.Microphone() as source:
                     choice_audio = srObj.listen(source)
