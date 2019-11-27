@@ -1,0 +1,151 @@
+\hypertarget{classretrieve__email_1_1Gmail__imap}{}\section{retrieve\+\_\+email.\+Gmail\+\_\+imap Class Reference}
+\label{classretrieve__email_1_1Gmail__imap}\index{retrieve\+\_\+email.\+Gmail\+\_\+imap@{retrieve\+\_\+email.\+Gmail\+\_\+imap}}
+
+
+\hyperlink{classretrieve__email_1_1Gmail__imap}{Gmail\+\_\+imap} class to create imap object and perform actions.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_ac61ba6b0ffcee2275f2a1063666449d0}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classretrieve__email_1_1Gmail__imap_a241e396e8bbcedd36d899dce1d7b4528}{userid}, \hyperlink{classretrieve__email_1_1Gmail__imap_a99bff913652cb1e676cb021ed54be41d}{password})
+\begin{DoxyCompactList}\small\item\em init() \end{DoxyCompactList}\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_ad4be5f7d3c2cc476a924e5af796e1a62}{get\+\_\+allmail} (self)
+\begin{DoxyCompactList}\small\item\em Retrieve mails. \end{DoxyCompactList}\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_a7649b5f3a875089f884dae33fdab0c1c}{fetch\+\_\+mail\+\_\+id} (self, ids)
+\begin{DoxyCompactList}\small\item\em Fetch Mail Ids. \end{DoxyCompactList}\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_ada9c563841b45b9525dcf73cd6731325}{get\+\_\+unseenmail} (self)
+\begin{DoxyCompactList}\small\item\em Fetch Unseen mails. \end{DoxyCompactList}\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_a00e6ba7ac3754447224ac70929b4883d}{account\+\_\+logout} (self)
+\begin{DoxyCompactList}\small\item\em Logout. \end{DoxyCompactList}\item 
+def \hyperlink{classretrieve__email_1_1Gmail__imap_ad583ee96dbc3e7ecc1623feecc1983e1}{delete\+\_\+mail} (self, from\+ID, subject)
+\begin{DoxyCompactList}\small\item\em Delete Mail. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classretrieve__email_1_1Gmail__imap_a241e396e8bbcedd36d899dce1d7b4528}{userid}
+\item 
+\hyperlink{classretrieve__email_1_1Gmail__imap_a99bff913652cb1e676cb021ed54be41d}{password}
+\item 
+\hyperlink{classretrieve__email_1_1Gmail__imap_af49e03b664259409c814ea882586810c}{imapper}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classretrieve__email_1_1Gmail__imap}{Gmail\+\_\+imap} class to create imap object and perform actions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_ac61ba6b0ffcee2275f2a1063666449d0}\label{classretrieve__email_1_1Gmail__imap_ac61ba6b0ffcee2275f2a1063666449d0}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{userid,  }\item[{}]{password }\end{DoxyParamCaption})}
+
+
+
+init() 
+
+init() to stabilise connection with gmail imap server
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em userid} & user email id \\
+\hline
+\mbox{\tt in}  & {\em password} & password for login \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_a00e6ba7ac3754447224ac70929b4883d}\label{classretrieve__email_1_1Gmail__imap_a00e6ba7ac3754447224ac70929b4883d}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!account\+\_\+logout@{account\+\_\+logout}}
+\index{account\+\_\+logout@{account\+\_\+logout}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{account\+\_\+logout()}{account\_logout()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+account\+\_\+logout (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Logout. 
+
+logout from current account \mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_ad583ee96dbc3e7ecc1623feecc1983e1}\label{classretrieve__email_1_1Gmail__imap_ad583ee96dbc3e7ecc1623feecc1983e1}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!delete\+\_\+mail@{delete\+\_\+mail}}
+\index{delete\+\_\+mail@{delete\+\_\+mail}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{delete\+\_\+mail()}{delete\_mail()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+delete\+\_\+mail (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{from\+ID,  }\item[{}]{subject }\end{DoxyParamCaption})}
+
+
+
+Delete Mail. 
+
+deletes a mail with given subject and sender mail address.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em from\+ID} & sender mail address \\
+\hline
+\mbox{\tt in}  & {\em subject} & subject of mail to be deleted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_a7649b5f3a875089f884dae33fdab0c1c}\label{classretrieve__email_1_1Gmail__imap_a7649b5f3a875089f884dae33fdab0c1c}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!fetch\+\_\+mail\+\_\+id@{fetch\+\_\+mail\+\_\+id}}
+\index{fetch\+\_\+mail\+\_\+id@{fetch\+\_\+mail\+\_\+id}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{fetch\+\_\+mail\+\_\+id()}{fetch\_mail\_id()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+fetch\+\_\+mail\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ids }\end{DoxyParamCaption})}
+
+
+
+Fetch Mail Ids. 
+
+This function retrieve mails based on mail id(s)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ids} & user email id(s) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_ad4be5f7d3c2cc476a924e5af796e1a62}\label{classretrieve__email_1_1Gmail__imap_ad4be5f7d3c2cc476a924e5af796e1a62}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!get\+\_\+allmail@{get\+\_\+allmail}}
+\index{get\+\_\+allmail@{get\+\_\+allmail}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{get\+\_\+allmail()}{get\_allmail()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+get\+\_\+allmail (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieve mails. 
+
+Function to retrieve all mails in mailbox \mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_ada9c563841b45b9525dcf73cd6731325}\label{classretrieve__email_1_1Gmail__imap_ada9c563841b45b9525dcf73cd6731325}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!get\+\_\+unseenmail@{get\+\_\+unseenmail}}
+\index{get\+\_\+unseenmail@{get\+\_\+unseenmail}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{get\+\_\+unseenmail()}{get\_unseenmail()}}
+{\footnotesize\ttfamily def retrieve\+\_\+email.\+Gmail\+\_\+imap.\+get\+\_\+unseenmail (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Fetch Unseen mails. 
+
+Retrieve all the unseen mail from mailbox. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_af49e03b664259409c814ea882586810c}\label{classretrieve__email_1_1Gmail__imap_af49e03b664259409c814ea882586810c}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!imapper@{imapper}}
+\index{imapper@{imapper}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{imapper}{imapper}}
+{\footnotesize\ttfamily retrieve\+\_\+email.\+Gmail\+\_\+imap.\+imapper}
+
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_a99bff913652cb1e676cb021ed54be41d}\label{classretrieve__email_1_1Gmail__imap_a99bff913652cb1e676cb021ed54be41d}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!password@{password}}
+\index{password@{password}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily retrieve\+\_\+email.\+Gmail\+\_\+imap.\+password}
+
+\mbox{\Hypertarget{classretrieve__email_1_1Gmail__imap_a241e396e8bbcedd36d899dce1d7b4528}\label{classretrieve__email_1_1Gmail__imap_a241e396e8bbcedd36d899dce1d7b4528}} 
+\index{retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}!userid@{userid}}
+\index{userid@{userid}!retrieve\+\_\+email\+::\+Gmail\+\_\+imap@{retrieve\+\_\+email\+::\+Gmail\+\_\+imap}}
+\subsubsection{\texorpdfstring{userid}{userid}}
+{\footnotesize\ttfamily retrieve\+\_\+email.\+Gmail\+\_\+imap.\+userid}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{retrieve__email_8py}{retrieve\+\_\+email.\+py}\end{DoxyCompactItemize}
